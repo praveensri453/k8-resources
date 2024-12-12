@@ -4,8 +4,8 @@ metadata:
   name: multi-container
 spec:
   containers:
-  - name: nginx
+  - name: nginx   # Unique name for the first container
     image: nginx
-  - name: almalinux
+  - name: almalinux   # Unique name for the second container
     image: almalinux:9
-    command: ["sleep","1000"]
+    command: ["sleep","1000"]  # By default, AlmaLinux containers might exit immediately if no command is provided.
