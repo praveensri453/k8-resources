@@ -1,0 +1,26 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-config
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    envFrom:  #This injects all the key-value pairs from the specified ConfigMap as environment variables.
+    - configMapRef: #The envFrom section pulls in environment variables from a ConfigMap named nginx-config
+        name: nginx-config #This will provide environment variables to the nginx container 
+                           # based on the entries defined within nginx-config.(08-config-map.yaml)
+   
+   
+   
+    # env:
+    #   - name: course
+    #     valueFrom:
+    #       configMapKeyRef:
+    #         name: nginx-config # name of the config map you are referring to
+    #         key: course # env.name and config map key name can be different
+    #   - name: duration
+    #     valueFrom:
+    #       configMapKeyRef:
+    #         name: nginx-config
+    #         key: duration
