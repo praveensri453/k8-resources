@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: limits
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      requests:   # These specify the amount of CPU and memory that Kubernetes should guarantee for the container.
+        cpu: 100m
+        memory: 68Mi
+      limits:  # These specify the maximum CPU and memory the container is allowed to use.
+        cpu: 120m
+        memory: 100Mi
