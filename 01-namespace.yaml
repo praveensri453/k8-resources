@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: expense
+  name: expense #The pod is named expense
   labels:
     project: expense
     environment: dev

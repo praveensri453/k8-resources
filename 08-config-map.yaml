@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:  #The data section contains the key-value pairs that store configuration data:
+  course: devops
+  duration: "120hrs"
