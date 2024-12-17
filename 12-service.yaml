@@ -1,7 +1,7 @@
-kind: Pod
+kind: Pod #Specifies that the resource is a Pod.
 apiVersion: v1
 metadata:
-  name: labels
+  name: labels # The name of the Pod.
   labels:
     project: expense
     module: backend
@@ -11,17 +11,18 @@ spec:
   - name: nginx
     image: nginx
 ---
+#The next part defines a Service to expose the nginx container in the Pod to other parts of the cluster.
 kind: Service
 apiVersion: v1
 metadata:
-  name: nginx
+  name: nginx #The name of the Service.
 spec:
-  selector:
+  selector: #Selects which Pods are targeted by this Service based on matching labels
     project: expense
     module: backend
     environment: dev
   ports:
   - name: nginx-svc-port
     protocol: TCP
-    port: 80 # service port
-    targetPort: 80 # container port
+    port: 80 # service port "The port the Service exposes"
+    targetPort: 80 # container port 'The port on the container that the Service forwards traffic to.'
